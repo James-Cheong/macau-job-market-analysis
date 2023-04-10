@@ -69,6 +69,7 @@ def data_cleansing(df, x):
     # duplicates_index = get_duplicats(df1, df2)
     # df2.drop(duplicates_index, inplace=True)
     # df = pd.concat([df1, df2])
+    df.dropna(subset=['種類', '公司類型'],inplace=True)
     df['學歷'] = df['學歷'].apply(lambda x: re.search(r'.*?教育', x).group() if re.search(r'.*教育', x) else '不論學歷')
     df['學歷'] = df['學歷'].str.replace('初中教育', '中學教育').str.replace('高中教育', '中學教育')
     df['種類'] = df['種類'].replace(CATEGORY_MAPPING)

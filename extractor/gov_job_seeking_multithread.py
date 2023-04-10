@@ -18,15 +18,10 @@ def main():
     search_jobs(all_jobs_list)
     # store in cv
     df = pd.DataFrame(all_jobs_list, columns=['種類', '公司類型', '招聘職位', '薪金', '公司名稱', '學歷', '經驗/技能', '職責'])
-    df = pre_process_data(df)
     df.to_csv(f'D:\python_project\output\gov_jobs_{datetime.datetime.now().strftime("%Y%m%d")}.csv', index=False, encoding='utf_8_sig')
     end_time = time.time()
     print(f'Finished in {end_time-start_time:.2f}s')
 
-
-def pre_process_data(df):
-
-    return df
 
 def driver_init(url: str):
     # Set the path to the Firefox webdriver
